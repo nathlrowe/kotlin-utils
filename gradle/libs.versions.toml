@@ -1,0 +1,9 @@
+[versions]
+kotlin = "1.9.22"
+
+[libraries]
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.5.0" }
+commons-math = { module = "org.apache.commons:commons-math3", version = "3.6.1" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
