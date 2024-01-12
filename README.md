@@ -1,5 +1,7 @@
 # kotlin-utils
 
+[![Kotlin](https://img.shields.io/badge/kotlin-1.9.22-blue.svg?logo=kotlin)](http://kotlinlang.org)
+
 A collection of simple Kotlin utilities that I found useful in my day-to-day programming.
 
 ## Installation
