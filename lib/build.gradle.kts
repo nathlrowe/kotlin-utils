@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.kotlin.jvm)
     `java-library`
     `maven-publish`
+    alias(libs.plugins.serialization)
 }
 
 repositories {
@@ -9,8 +10,30 @@ repositories {
 }
 
 dependencies {
+    implementation(libs.kotlinx.coroutines)
     implementation(libs.kotlinx.datetime)
+
+    implementation(libs.serialization.json)
+
+    implementation(libs.commons.cli)
+    implementation(libs.commons.compress)
+    implementation(libs.commons.csv)
+    implementation(libs.commons.dbcp)
     implementation(libs.commons.math)
+
+    implementation(libs.mysql)
+
+    implementation(libs.jakarta.mail)
+    implementation(libs.jakarta.activation)
+
+    implementation(libs.log4j.api)
+    implementation(libs.log4j.core)
+
+    // TODO upgrade to itext 8
+    implementation(libs.itext)
+
+    implementation(libs.poi.core)
+    implementation(libs.poi.ooxml)
 
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.3")
@@ -20,7 +43,7 @@ dependencies {
 java {
     // Set Java version
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(11))
     }
 
     // Include library sources and javadoc in publications

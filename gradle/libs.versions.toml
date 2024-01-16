@@ -1,9 +1,51 @@
 [versions]
 kotlin = "1.9.22"
 
+commons-cli = "1.5.0"
+commons-compress = "1.25.0"
+commons-csv = "1.10.0"
+commons-dbcp = "2.10.0"
+commons-math = "3.6.1"
+commons-text = "1.10.0"
+itext = "7.2.5"
+kotlinx-coroutines = "1.6.4"
+kotlinx-datetime = "0.5.0"
+log4j = "2.21.1"
+jakarta = "2.0.1"
+mysql = "8.2.0"
+poi = "4.1.2"
+serialization-json = "1.6.0"
+xlsx-streamer = "2.2.0"
+
 [libraries]
-kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.5.0" }
-commons-math = { module = "org.apache.commons:commons-math3", version = "3.6.1" }
+commons-cli = { module = "commons-cli:commons-cli", version.ref = "commons-cli" }
+commons-compress = { module = "org.apache.commons:commons-compress", version.ref = "commons-compress" }
+commons-csv = { module = "org.apache.commons:commons-csv", version.ref = "commons-csv" }
+commons-dbcp = { module = "org.apache.commons:commons-dbcp2", version.ref = "commons-dbcp" }
+commons-math = { module = "org.apache.commons:commons-math3", version.ref = "commons-math" }
+commons-text = { module = "commons-text:commons-text", version.ref = "commons-text" }
+
+itext = { module = "com.itextpdf:itext7-core", version.ref = "itext" }
+
+jakarta-mail = { module = "com.sun.mail:jakarta.mail", version.ref = "jakarta" }
+jakarta-activation = { module = "com.sun.activation:jakarta.activation", version.ref = "jakarta" }
+
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+
+log4j-api = { module = "org.apache.logging.log4j:log4j-api", version.ref = "log4j" }
+log4j-core = { module = "org.apache.logging.log4j:log4j-core", version.ref = "log4j" }
+
+mysql = { module = "com.mysql:mysql-connector-j", version.ref = "mysql" }
+
+poi-core = { module = "org.apache.poi:poi", version.ref = "poi" }
+poi-ooxml = { module = "org.apache.poi:poi-ooxml", version.ref = "poi" } # Necessary for file loading
+
+serialization-core = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization-json" }
+
+xlsx-streamer = { module = "com.monitorjbl:xlsx-streamer", version.ref = "xlsx-streamer" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
