@@ -20,6 +20,7 @@ dependencies {
     implementation(libs.commons.csv)
     implementation(libs.commons.dbcp)
     implementation(libs.commons.math)
+    implementation(libs.commons.net)
 
     implementation(libs.mysql)
 

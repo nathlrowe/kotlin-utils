@@ -6,6 +6,7 @@ commons-compress = "1.25.0"
 commons-csv = "1.10.0"
 commons-dbcp = "2.10.0"
 commons-math = "3.6.1"
+commons-net = "3.10.0"
 commons-text = "1.10.0"
 itext = "7.2.5"
 kotlinx-coroutines = "1.6.4"
@@ -23,6 +24,7 @@ commons-compress = { module = "org.apache.commons:commons-compress", version.ref
 commons-csv = { module = "org.apache.commons:commons-csv", version.ref = "commons-csv" }
 commons-dbcp = { module = "org.apache.commons:commons-dbcp2", version.ref = "commons-dbcp" }
 commons-math = { module = "org.apache.commons:commons-math3", version.ref = "commons-math" }
+commons-net = { module = "commons-net:commons-net", version.ref = "commons-net" }
 commons-text = { module = "commons-text:commons-text", version.ref = "commons-text" }
 
 itext = { module = "com.itextpdf:itext7-core", version.ref = "itext" }
