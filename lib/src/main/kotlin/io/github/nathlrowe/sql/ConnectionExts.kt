@@ -57,15 +57,14 @@ fun <R> Connection.transaction(block: Connection.() -> R): R {
 fun Connection.insert(
     tableName: String,
     columnsToValues: Map<Any, Any?>,
-    ignore: Boolean = false
+    mode: InsertMode = InsertMode.INSERT
 ): Int {
     val pairs = columnsToValues.toList()
     val columnNames = pairs.joinToString(", ") { it.first.toString() }
     val valuePlaceholders = pairs.joinToString(", ") { "?" }
     val sql = buildString {
-        append("INSERT ")
-        if (ignore) append("IGNORE ")
-        append("INTO $tableName ($columnNames) VALUES ($valuePlaceholders)")
+        append(mode.sql)
+        append(" INTO $tableName ($columnNames) VALUES ($valuePlaceholders)")
     }
 
     return withPreparedStatement(sql, true) {
@@ -95,14 +94,13 @@ fun <T> Connection.insert(
     entities: Iterable<T>,
     keys: Iterable<Any>,
     valueSelector: (T) -> Iterable<Any?>,
-    ignore: Boolean = false
+    mode: InsertMode = InsertMode.INSERT
 ): List<Int> = transaction {
     val columnNames = keys.joinToString(", ") { it.toString() }
     val valuePlaceholders = keys.joinToString(", ") { "?" }
     val sql = buildString {
-        append("INSERT ")
-        if (ignore) append("IGNORE ")
-        append("INTO $tableName ($columnNames) VALUES ($valuePlaceholders)")
+        append(mode.sql)
+        append(" INTO $tableName ($columnNames) VALUES ($valuePlaceholders)")
     }
 
     // Add entities to statement
@@ -134,7 +132,8 @@ fun <T> Connection.insert(
 fun <T> Connection.insert(
     tableName: String,
     entities: Iterable<T>,
-    valueSelector: Map<Any, (T) -> Any?>
+    valueSelector: Map<Any, (T) -> Any?>,
+    mode: InsertMode = InsertMode.INSERT,
 ): List<Int> {
     val valueSelectorList = valueSelector.toList()
     return insert(
@@ -143,7 +142,8 @@ fun <T> Connection.insert(
         keys = valueSelectorList.map { it.first },
         valueSelector = { entity ->
             valueSelectorList.map { it.second(entity) }
-        }
+        },
+        mode = mode
     )
 }
 
